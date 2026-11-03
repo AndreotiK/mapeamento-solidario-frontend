@@ -21,9 +21,22 @@ Após a aprovação do Governo, o gestor recebe o login. No painel, ele pode ver
 ![Dashboard](images/gestor-dashboard.png)
 
 ## 4. Cadastro Completo do Morador
+
 Ao digitar o código do morador (ex: `MS-4829`), o gestor é redirecionado para a tela de **Cadastro Completo**. O nome e o código já vêm pré-preenchidos. Aqui são coletados dados mais sensíveis: RG/CPF, CadÚnico, necessidades especiais de saúde e contato de emergência.
 
-![Cadastro Completo](images/gestor-cadastro-completo.png)
+Como este formulário é extenso (dividido em 3 seções para evitar a sobrecarga cognitiva do gestor), apresentamos a tela em duas partes:
+
+### Parte 1: Dados Pessoais e Validação do Código
+No topo, o gestor confirma que o código do morador foi validado (caixa verde). Em seguida, preenche os dados do registro civil, incluindo o Nome Social (respeitando a identidade de gênero) e o CadÚnico (opcional, mas importante para o acompanhamento social).
+
+![Cadastro Completo - Parte 1](images/gestor-cadastro-completo-1.png)
+
+### Parte 2: Saúde, Estadia e Regras
+Na parte inferior, o gestor registra necessidades especiais de saúde (essencial para o acolhimento adequado), define o tempo estimado de estadia e confirma que o morador leu as regras de convivência antes de finalizar o cadastro.
+
+![Cadastro Completo - Parte 2](images/gestor-cadastro-completo-2.png)
+
+> **Nota de IHC (Lei de Miller):** A divisão em seções e a apresentação em duas partes no manual refletem a estratégia de **"Chunking"** (agrupamento de informação), que reduz a carga cognitiva e evita que o usuário se sinta sobrecarregado ao preencher um formulário longo.
 
 ## 5. Cadastro de Novo Imóvel
 O gestor pode cadastrar novos imóveis informando infraestrutura (água, luz, rampas, banheiros adaptados), serviços (oficinas) e fotos. O **Termo Ético** é obrigatório.
