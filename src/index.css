@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ms-green: #0F5E2E;
+  --color-ms-blue: #00417A;
+  --color-ms-gray-bg: #F3F4F6;
+  --color-ms-gray-text: #4B5563;
+}
+
+/* Foco visível para navegação por teclado (WCAG 2.1.1) */
+*:focus-visible {
+  outline: 3px solid var(--color-ms-blue);
+  outline-offset: 2px;
+}
