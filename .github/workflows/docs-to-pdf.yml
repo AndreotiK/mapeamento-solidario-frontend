@@ -17,13 +17,15 @@ jobs:
       - name: Instalar Pandoc e LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-latex-recommended texlive-fonts-recommended
+          # Trocamos o pacote recomendado pelo texlive-xetex
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended
 
       - name: Converter Markdown para PDF
         run: |
-          # A flag -f markdown-yaml_metadata_block impede que tabelas sejam lidas como YAML
+          # Adicionamos --resource-path=docs para o Pandoc achar a pasta de imagens
           pandoc docs/*.md -o manual-mapeamento-solidario.pdf \
             --from=markdown-yaml_metadata_block \
+            --resource-path=docs \
             --pdf-engine=xelatex \
             -V geometry:margin=2cm
 
