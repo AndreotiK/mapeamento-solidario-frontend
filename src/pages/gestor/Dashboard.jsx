@@ -20,16 +20,15 @@ export default function Dashboard() {
   const [codigoInput, setCodigoInput] = useState('');
   const [mensagem, setMensagem] = useState({ texto: '', tipo: '' });
 
-  const handleConfirmarReserva = (codigoReserva) => {
-    // Simula a verificação do código
+  const handleConfirmarReserva = (codigoReserva, nomeMorador) => {
     if (codigoInput.toUpperCase() === codigoReserva) {
-      // Remove a reserva da lista de pendentes
-      setReservas(reservas.filter(r => r.codigo !== codigoReserva));
-      setMensagem({ texto: `Reserva ${codigoReserva} confirmada com sucesso!`, tipo: 'sucesso' });
-      setCodigoInput('');
+      // Se o código estiver correto, navega para a tela de cadastro completo
+      // Passamos o nome e o código via state para pré-preencher a próxima tela
+      navigate('/gestor/cadastro-completo', { 
+        state: { nome: nomeMorador, codigo: codigoReserva } 
+      });
       
-      // Limpa a mensagem após 4 segundos
-      setTimeout(() => setMensagem({ texto: '', tipo: '' }), 4000);
+      setCodigoInput(''); // Limpa o input
     } else {
       setMensagem({ texto: 'Código incorreto. Verifique com o morador.', tipo: 'erro' });
     }
@@ -116,7 +115,7 @@ export default function Dashboard() {
                       className="flex-1 p-3 border-2 border-gray-300 rounded-lg uppercase focus:border-ms-blue focus:ring-0"
                     />
                     <button 
-                      onClick={() => handleConfirmarReserva(reserva.codigo)}
+                      onClick={() => handleConfirmarReserva(reserva.codigo, reserva.nome)}
                       className="bg-ms-blue text-white font-bold px-4 rounded-lg hover:bg-blue-900 transition-colors flex items-center gap-2"
                     >
                       <CheckCircle className="w-5 h-5" /> Confirmar

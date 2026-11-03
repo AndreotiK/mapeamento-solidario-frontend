@@ -7,6 +7,7 @@ import LoginGestor from './pages/gestor/Login';
 import DashboardGestor from './pages/gestor/Dashboard';
 import CadastroImovel from './pages/gestor/CadastroImovel'; 
 import SolicitacaoAvaliacao from './pages/gestor/SolicitacaoAvaliacao';
+import CadastroMoradorCompleto from './pages/gestor/CadastroMoradorCompleto'; //
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/gestor/login" element={<LoginGestor />} />
         <Route path="/gestor/solicitar-acesso" element={<SolicitacaoAvaliacao />} />
         <Route path="/gestor/dashboard" element={<DashboardGestor />} />
+        <Route path="/gestor/cadastro-completo" element={<CadastroMoradorCompleto />} />
         <Route path="/gestor/cadastro-imovel" element={<CadastroImovel />} />
       </Routes>
     </BrowserRouter>
