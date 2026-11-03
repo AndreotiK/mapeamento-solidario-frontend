@@ -1,0 +1,31 @@
+name: Docs to PDF
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs-to-pdf.yml'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar Pandoc e LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-recommended texlive-fonts-recommended
+
+      - name: Converter Markdown para PDF
+        run: |
+          # Combina todos os .md da pasta docs em um único PDF
+          pandoc docs/*.md -o manual-mapeamento-solidario.pdf --pdf-engine=xelatex -V geometry:margin=2cm
+
+      - name: Upload do PDF como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-pdf
+          path: manual-mapeamento-solidario.pdf
