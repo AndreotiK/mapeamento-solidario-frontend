@@ -15,5 +15,6 @@ Para evitar a mercantilização da vulnerabilidade e a expansão de práticas co
 
 Todo gestor que deseja cadastrar um imóvel precisa aceitar um **Termo de Compromisso Ético** obrigatório. Além disso, o imóvel passa por uma **visita técnica do Governo do Estado** antes de ser disponibilizado na plataforma.
 
----
 *Projeto desenvolvido para a disciplina de Interação Humano-Computador (IHC) - UFABC 2026.3.*
+
+\newpage

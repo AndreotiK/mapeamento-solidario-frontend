@@ -18,3 +18,5 @@ O projeto foi desenhado seguindo os princípios de **Design Universal**, **Desig
 1.  **Cores com Significado:** O Verde (`#0F5E2E`) é usado para ações do morador (acolhimento), o Azul (`#00417A`) para o gestor (administração) e o Vermelho para alertas éticos.
 2.  **Ícones + Texto:** Nenhuma informação depende exclusivamente de cor. Os serviços (Banho, Alimentação, Oficinas) sempre têm ícone e texto.
 3.  **Foco Visível:** Configuramos `*:focus-visible` no CSS para garantir que pessoas que navegam por teclado vejam onde estão.
+
+\newpage

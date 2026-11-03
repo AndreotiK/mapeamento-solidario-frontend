@@ -31,3 +31,5 @@ Após confirmar, o morador recebe um **código de identificação** (ex: `MS-482
 > **Design Contextual:** O morador não preenche um formulário longo na rua. A pré-reserva digital garante a vaga, e o cadastro completo é feito presencialmente no abrigo, com apoio de um assistente social.
 
 ![Modal de Reserva](images/morador-reserva-modal.png)
+
+\newpage

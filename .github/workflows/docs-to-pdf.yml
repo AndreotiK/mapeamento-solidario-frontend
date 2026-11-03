@@ -22,12 +22,13 @@ jobs:
 
       - name: Converter Markdown para PDF
         run: |
-          # Adicionamos --resource-path=docs para o Pandoc achar a pasta de imagens
+          # Usamos a flag +raw_tex para aceitar o comando \newpage
           pandoc docs/*.md -o manual-mapeamento-solidario.pdf \
-            --from=markdown-yaml_metadata_block \
+            --from markdown+raw_tex \
             --resource-path=docs \
             --pdf-engine=xelatex \
-            -V geometry:margin=2cm
+            -V geometry:margin=2cm \
+            -V linkcolor=blue
 
       - name: Upload do PDF como artifact
         uses: actions/upload-artifact@v4

@@ -43,3 +43,5 @@ O gestor pode cadastrar novos imóveis informando infraestrutura (água, luz, ra
 
 ![Cadastro de Imóvel](images/gestor-cadastro-imovel.png)
 ![Termo Ético](images/gestor-termo-etico.png)
+
+\newpage
