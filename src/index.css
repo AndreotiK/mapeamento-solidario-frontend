@@ -5,10 +5,182 @@
   --color-ms-blue: #00417A;
   --color-ms-gray-bg: #F3F4F6;
   --color-ms-gray-text: #4B5563;
+  --color-ms-danger: #DC2626;
 }
 
-/* Foco visível para navegação por teclado (WCAG 2.1.1) */
+:root {
+  --a11y-font-scale: 1;
+  --a11y-letter-spacing: 0em;
+  --a11y-line-height: 1.5;
+  --a11y-touch-min: 44px;
+}
+
+html {
+  font-size: calc(16px * var(--a11y-font-scale));
+  letter-spacing: var(--a11y-letter-spacing);
+  line-height: var(--a11y-line-height);
+}
+
+/* Foco visível de alta visibilidade (WCAG 2.4.7 / 2.4.11) */
 *:focus-visible {
   outline: 3px solid var(--color-ms-blue);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+/* Alvos de toque ampliados (Lei de Fitts / WCAG 2.5.5) */
+html.a11y-large-touch button,
+html.a11y-large-touch a,
+html.a11y-large-touch input,
+html.a11y-large-touch select,
+html.a11y-large-touch label:has(input[type="checkbox"]) {
+  min-height: 58px !important;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+/* ==========================================================================
+   MODO ALTO CONTRASTE (WCAG 1.4.6 AAA - Razão > 19:1)
+   ========================================================================== */
+html.a11y-high-contrast body,
+html.a11y-high-contrast main,
+html.a11y-high-contrast header,
+html.a11y-high-contrast footer,
+html.a11y-high-contrast section,
+html.a11y-high-contrast form,
+html.a11y-high-contrast .bg-ms-gray-bg,
+html.a11y-high-contrast .bg-white,
+html.a11y-high-contrast .bg-blue-50,
+html.a11y-high-contrast .bg-green-50,
+html.a11y-high-contrast .bg-gray-50 {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+/* Contêineres e cartões com borda amarela de alto contraste */
+html.a11y-high-contrast header,
+html.a11y-high-contrast section,
+html.a11y-high-contrast form,
+html.a11y-high-contrast div[class*="rounded-2xl"],
+html.a11y-high-contrast div[class*="rounded-3xl"],
+html.a11y-high-contrast div[class*="rounded-xl"] {
+  border-color: #FFFF00 !important;
+}
+
+/* Tipografia global (incluindo h4, h5, h6 e spans) em branco puro */
+html.a11y-high-contrast h1,
+html.a11y-high-contrast h2,
+html.a11y-high-contrast h3,
+html.a11y-high-contrast h4,
+html.a11y-high-contrast h5,
+html.a11y-high-contrast h6,
+html.a11y-high-contrast p,
+html.a11y-high-contrast span,
+html.a11y-high-contrast label,
+html.a11y-high-contrast li,
+html.a11y-high-contrast strong {
+  color: #FFFFFF !important;
+}
+
+/* Botões padrão / Ações primárias: Fundo Amarelo + Texto Preto */
+html.a11y-high-contrast button {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+  border: 2px solid #FFFFFF !important;
+}
+
+html.a11y-high-contrast button *,
+html.a11y-high-contrast button span,
+html.a11y-high-contrast button svg {
+  color: #000000 !important;
+}
+
+/* Botões de alternância DESATIVADOS (aria-pressed="false") e botões secundários neutros:
+   Fundo Preto + Borda Amarela + Texto Branco */
+html.a11y-high-contrast button[aria-pressed="false"],
+html.a11y-high-contrast button.bg-white {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+html.a11y-high-contrast button[aria-pressed="false"] *,
+html.a11y-high-contrast button[aria-pressed="false"] span,
+html.a11y-high-contrast button[aria-pressed="false"] svg,
+html.a11y-high-contrast button.bg-white *,
+html.a11y-high-contrast button.bg-white span,
+html.a11y-high-contrast button.bg-white svg {
+  color: #FFFFFF !important;
+}
+
+/* Botões de alternância ATIVADOS (aria-pressed="true"):
+   Fundo Amarelo + Borda Branca + Texto Preto */
+html.a11y-high-contrast button[aria-pressed="true"] {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+  border: 2px solid #FFFFFF !important;
+}
+
+html.a11y-high-contrast button[aria-pressed="true"] *,
+html.a11y-high-contrast button[aria-pressed="true"] span,
+html.a11y-high-contrast button[aria-pressed="true"] svg {
+  color: #000000 !important;
+}
+
+/* Badges internos de status ("Ativado" / "Desativado") dentro de botões */
+html.a11y-high-contrast button[aria-pressed="true"] span.rounded-full {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border: 1px solid #000000 !important;
+}
+
+html.a11y-high-contrast button[aria-pressed="false"] span.rounded-full {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFFF00 !important;
+}
+
+/* Campos de formulário e seletores */
+html.a11y-high-contrast input,
+html.a11y-high-contrast select,
+html.a11y-high-contrast textarea {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+html.a11y-high-contrast input::placeholder,
+html.a11y-high-contrast textarea::placeholder {
+  color: #CCCCCC !important;
+}
+
+/* Alertas de erro mantêm destaque crítico em vermelho e branco */
+html.a11y-high-contrast div[role="alert"] {
+  background-color: #450A0A !important;
+  border: 3px solid #FF4D4D !important;
+}
+
+html.a11y-high-contrast *:focus-visible {
+  outline: 4px solid #00FFFF !important;
+  outline-offset: 3px;
+}
+
+/* Filtros de Daltonismo / Conforto Visual */
+html.a11y-filter-grayscale {
+  filter: grayscale(100%);
+}
+html.a11y-filter-protanopia {
+  filter: contrast(1.08) saturate(0.85) hue-rotate(-12deg);
+}
+html.a11y-filter-deuteranopia {
+  filter: contrast(1.08) saturate(0.85) hue-rotate(12deg);
+}
+
+/* Redução de Movimento (WCAG 2.3.3) */
+html.a11y-reduced-motion *,
+html.a11y-reduced-motion *::before,
+html.a11y-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
 }
